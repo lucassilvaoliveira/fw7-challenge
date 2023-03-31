@@ -1,6 +1,6 @@
 import Router from "express";
-import { CreateShortenUrlController } from "./core/usecases/shorten-url/CreateShortenUrlController";
-import { CreateShortenUrlUseCase } from "./core/usecases/shorten-url/CreateShortenUrlUseCase";
+import { CreateShortenUrlController } from "./core/usecases/create-shorten-url/CreateShortenUrlController";
+import { CreateShortenUrlUseCase } from "./core/usecases/create-shorten-url/CreateShortenUrlUseCase";
 import { MemoryDatabase } from "./infra/implementation/memory/MemoryDatabase";
 import { ShortenUrlImpl } from "./infra/implementation/ShortenUrlImpl";
 

@@ -1,12 +1,4 @@
 export default class Url {
-    constructor(private id: string, private fullUrl: string, private shortedUrl: string)
+    constructor(public id: string, public fullUrl: string, public shortedUrl: string)
     {}
-
-    public getId() {
-        return this.id;
-    }
-
-    public getFullUrl() {
-        return this.fullUrl;
-    }
 }
