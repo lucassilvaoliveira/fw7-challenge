@@ -26,16 +26,16 @@ class MemoryDatabase implements IDatabase {
         return shortedUrl;
     }
 
-    async getFullUrl(fullUrlId: string): Promise<string> {
+    async getFullUrl(shortedUrl: string): Promise<string> {
         const result = this.data.find((url) => {
-            return url.id == fullUrlId;
+            return url.shortedUrl == shortedUrl;
         });
         
         if (result != null) {
             return result.fullUrl;
         }
 
-        return "does not exist an url with this id";
+        return "does not exist full url with this shorted url";
     }
     
 }

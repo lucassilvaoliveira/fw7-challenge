@@ -1,7 +1,7 @@
 import IDatabase from "../interface/IDatabase";
-import { IShortenUrl } from "../interface/IShortenUrl";
+import { ICreateShortenUrl } from "../interface/ICreateShortenUrl";
 
-class CreateShortenUrlImpl implements IShortenUrl {
+class CreateShortenUrlImpl implements ICreateShortenUrl {
 
     constructor(
         private iDatabase: IDatabase
@@ -13,4 +13,4 @@ class CreateShortenUrlImpl implements IShortenUrl {
 
 }
 
-export { CreateShortenUrlImpl as ShortenUrlImpl }
+export { CreateShortenUrlImpl }

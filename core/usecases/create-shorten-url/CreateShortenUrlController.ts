@@ -3,14 +3,14 @@ import { CreateShortenUrlUseCase } from "./CreateShortenUrlUseCase";
 
 class CreateShortenUrlController {
     constructor (
-        private shortenUrlUseCase: CreateShortenUrlUseCase
+        private createShortenUrlUseCase: CreateShortenUrlUseCase
     ) {}
 
     async handle(request: Request, response: Response) {
         const { fullUrl } = request.body;
         if (fullUrl) {
             try {
-                const result = await this.shortenUrlUseCase.execute(fullUrl);
+                const result = await this.createShortenUrlUseCase.execute(fullUrl);
                 return response.status(201).json({
                     message: result
                 })
@@ -21,7 +21,7 @@ class CreateShortenUrlController {
             }
         } 
         return response.status(400).json({
-            message: '"fullUrl" is not send!'
+            message: '"fullUrl" is missing!'
         })      
     }
 }

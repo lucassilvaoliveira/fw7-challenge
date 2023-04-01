@@ -2,15 +2,13 @@ import Router from "express";
 import { CreateShortenUrlController } from "./core/usecases/create-shorten-url/CreateShortenUrlController";
 import { CreateShortenUrlUseCase } from "./core/usecases/create-shorten-url/CreateShortenUrlUseCase";
 import { MemoryDatabase } from "./infra/implementation/memory/MemoryDatabase";
-import { ShortenUrlImpl } from "./infra/implementation/ShortenUrlImpl";
+import { CreateShortenUrlImpl } from "./infra/implementation/CreateShortenUrlImpl";
 
 const router = Router();
 
 router.post("/create-shorten-url", async (request, response) => {
-    const createShortenUrlController = new CreateShortenUrlController(
-                                            new CreateShortenUrlUseCase(
-                                                new ShortenUrlImpl(
-                                                    new MemoryDatabase())))
+    const createShortenUrlController = 
+    new CreateShortenUrlController(new CreateShortenUrlUseCase(new CreateShortenUrlImpl(new MemoryDatabase())))
     createShortenUrlController.handle(request, response);
 });
 
