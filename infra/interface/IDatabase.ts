@@ -4,5 +4,4 @@ export default interface IDatabase {
     saveUrl(fullUrl: string): Promise<string>;
 
     getFullUrl(fullUrlId: string): Promise<string>;
-
 }

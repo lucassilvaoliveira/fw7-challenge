@@ -1,4 +1,6 @@
-export default class Url {
-    constructor(public id: string, public fullUrl: string, public shortedUrl: string)
+class Url {
+    constructor(private readonly id: string, public fullUrl: string, public shortedUrl: string)
     {}
 }
+
+export { Url }

@@ -1,3 +1,5 @@
-export interface ICreateShortenUrl {
+interface ICreateShortenUrl {
     createShortenUrl(fullUrl: string): Promise<string>;
 }
+
+export { ICreateShortenUrl }

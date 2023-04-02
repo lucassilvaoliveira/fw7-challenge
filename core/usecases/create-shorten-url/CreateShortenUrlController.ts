@@ -12,11 +12,11 @@ class CreateShortenUrlController {
             try {
                 const result = await this.createShortenUrlUseCase.execute(fullUrl);
                 return response.status(201).json({
-                    message: result
+                    shortedUrl: result
                 })
             } catch (error: any) {
                 return response.status(400).json({
-                    message: error.message
+                    error: error.message
                 })
             }
         } 

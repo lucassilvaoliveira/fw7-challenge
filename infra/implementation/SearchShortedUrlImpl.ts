@@ -1,4 +1,4 @@
-import IDatabase from "../interface/IDatabase";
+import IDatabase  from "../interface/IDatabase";
 import { ISearchShortedUrl } from "../interface/ISearchShortedUrl";
 
 class SearchShortedUrlImpl implements ISearchShortedUrl {

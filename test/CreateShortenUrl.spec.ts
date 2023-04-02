@@ -10,7 +10,7 @@ describe("Create Shorten url", () => {
 
         const sut = await createShortenUrlUseCase.execute(fullUrl);
 
-        const expectedUrl = `https://fw7.${memoryDatabase.getRandomUuid()}` 
+        const expectedUrl = `https://fw7.${memoryDatabase.getRandomUuid()}`
         expect(sut).toBe(expectedUrl);
     })
 
@@ -34,6 +34,5 @@ describe("Create Shorten url", () => {
         } catch (error) {
             expect(error).toBeInstanceOf(Error);
         }
-
     })
 })
