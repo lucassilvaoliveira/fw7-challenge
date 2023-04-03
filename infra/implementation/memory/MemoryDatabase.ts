@@ -1,4 +1,4 @@
-import { Url } from "../../../core/entities/Url";
+import { Url } from "../../../core/entities/url"
 import IDatabase  from "../../interface/IDatabase";
 import crypto from "crypto";
 

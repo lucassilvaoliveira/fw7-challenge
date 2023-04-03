@@ -1,6 +1,7 @@
 import IDatabase  from "../interface/IDatabase";
 import mongoose from "mongoose";
-import { MongoClient } from "mongodb";
+import shortid from "shortid";
+import { UrlSchema } from "../mongoSchemas/Url"
 import { mongoDatabaseUri } from "../../global/MongoDatabaseUri";
 
 class MongoDbImpl implements IDatabase {
@@ -15,12 +16,24 @@ class MongoDbImpl implements IDatabase {
         }
     }
     
-    saveUrl(fullUrl: string): Promise<string> {
-        throw new Error("Method not implemented.");
+    async saveUrl(fullUrl: string): Promise<string> {
+        const shortId = shortid();
+        await UrlSchema.create({
+            id: shortId,
+            fullUrl: fullUrl
+        })
+        
+        return `https://localhost:3001/fw7.${shortId}`
     }
 
-    getFullUrl(fullUrlId: string): Promise<string> {
-        throw new Error("Method not implemented.");
+    async getFullUrl(fullUrlId: string): Promise<string> {
+        const entry = await UrlSchema.findOne({
+            id: fullUrlId
+        })
+        if (entry?.fullUrl != null) {
+            return entry.fullUrl;
+        }
+        return "no results finded"
     }  
 }
 
