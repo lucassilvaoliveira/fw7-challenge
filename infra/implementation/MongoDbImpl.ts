@@ -1,16 +1,17 @@
 import IDatabase  from "../interface/IDatabase";
+import mongoose from "mongoose";
 import { MongoClient } from "mongodb";
 import { mongoDatabaseUri } from "../../global/MongoDatabaseUri";
 
 class MongoDbImpl implements IDatabase {
+
     async getConnection(): Promise<void> {
-        const client = new MongoClient(mongoDatabaseUri);
         try {
-            await client.connect();
+            await mongoose.connect(mongoDatabaseUri);
+            console.log('Database connected successfully!');
         } catch (error) {
-            console.error(error);
-        } finally {
-            await client.close();
+            console.log(error);
+            console.log('Database connected failed!');
         }
     }
     
@@ -22,5 +23,6 @@ class MongoDbImpl implements IDatabase {
         throw new Error("Method not implemented.");
     }  
 }
+
 
 export { MongoDbImpl }
