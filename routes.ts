@@ -1,7 +1,6 @@
 import Router from "express";
 import { CreateShortenUrlController } from "./core/usecases/create-shorten-url/CreateShortenUrlController";
 import { CreateShortenUrlUseCase } from "./core/usecases/create-shorten-url/CreateShortenUrlUseCase";
-import { MemoryDatabase } from "./infra/implementation/memory/MemoryDatabase";
 import { MongoDbImpl } from "./infra/implementation/MongoDbImpl";
 import { CreateShortenUrlImpl } from "./infra/implementation/CreateShortenUrlImpl";
 import { SearchShortedUrlController } from "./core/usecases/search-shorted-url/SearchShortedUrlController";

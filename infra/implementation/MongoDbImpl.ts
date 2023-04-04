@@ -23,7 +23,7 @@ class MongoDbImpl implements IDatabase {
             fullUrl: fullUrl
         })
         
-        return `https://localhost:3001/fw7.${shortId}`
+        return shortId.toString();
     }
 
     async getFullUrl(fullUrlId: string): Promise<string> {
