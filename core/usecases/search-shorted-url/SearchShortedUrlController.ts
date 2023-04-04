@@ -9,7 +9,6 @@ class SearchShortedUrlController {
         if (shortedUrl) {
             try {
                 const result = await this.searchShortedUrlUseCase.execute(shortedUrl);
-                console.log(result)
                 return response.redirect(result);
             } catch (error) {
                 
