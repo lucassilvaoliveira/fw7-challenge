@@ -26,8 +26,12 @@ describe("Search Shorted Url", () => {
 
         const searchShortedUrlUseCase = new SearchShortedUrlUseCase(new SearchShortedUrlImpl(memoryDatabase));
 
-        const sut = await searchShortedUrlUseCase.execute(shortedUrl);
+        try {
+            await searchShortedUrlUseCase.execute(shortedUrl);
+        } catch (error) {
+            expect(error).toBeInstanceOf(Error)
+        }
 
-        expect(sut).toBe("does not exist full url with this shorted url")
+
     })
 })

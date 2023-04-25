@@ -40,7 +40,7 @@ class MemoryDatabase implements IDatabase {
             return result.fullUrl;
         }
 
-        return "does not exist full url with this shorted url";
+        throw new Error("does not exist full url with this shorted url");
     }
     
 }
